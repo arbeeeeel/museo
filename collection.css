@@ -1,0 +1,247 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Museo Sans', sans-serif; /* Apply Museo Sans */
+    
+}
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+      padding: 0.8rem;
+    }
+
+    nav.scrolled {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .logo img {
+      width: 4rem;
+      height: 4rem;
+      margin-left: 1rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin-right: 1rem;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      color: green;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .nav-links a:hover {
+      color: red;
+    }
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 20px 20px; /* Added padding for the header */
+    height: 110vh; /* Makes the content take 80% of the screen height */
+}
+
+/* Page Title */
+.collection {
+    text-align: center;
+    padding: 3em;
+    transform: translateY(1.5em);
+}
+
+.hr1 {
+    border: 2px solid green;
+    width: 60em;
+    margin: auto;
+    position: relative;
+    top: -1em;
+}
+
+/* Collection Group */
+.collection-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    transform: translateY(2em);
+}
+
+/* Collection Row */
+.collection-row {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    margin-bottom: 20px;
+}
+
+/* Collection Container */
+.collection-container {
+    width: 25em;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9; /* Light background for better contrast */
+    border: 2px solid #ddd; /* Border for separation */
+}
+
+.collection-container img {
+    width: 20em;
+    height: 15em;
+    border-radius: 8px;
+}
+
+/* Different Borders */
+.trophy-container,
+.medal-container,
+.memorabilia-container,
+.certificate-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+}
+
+.trophy-container {
+    border-color: black;
+}
+
+.medal-container {
+    border-color: green;
+}
+
+.memorabilia-container {
+    border-color: green;
+}
+
+.certificate-container {
+    border-color: black;
+}
+
+/* Text Content */
+.collection-title {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.collection-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Additional Horizontal Rule */
+.hr2 {
+    border: 2px solid green;
+    width: 60em;
+    margin: auto;
+    position: relative;
+    top: 6em;
+}
+
+    
+footer {
+    background: lightgray;
+    color: black;
+    padding: 3em 0;
+    transform: translateY(10em);
+    background-color: lightgray;
+}
+
+footer a {
+    color:black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.credits {
+    position: fixed;
+    top: 2em;
+    left: 30em;
+}
+
+.IT{
+    transform: translateX(3.5em);
+}
+
+
+.facilities-section {
+  padding: 4rem 2rem;
+  background-color: #0d1f1a; /* dark green background */
+  color: #fff;
+}
+
+.facilities-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  color: #90ee90; /* light green text */
+}
+
+.facility-block {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* 👈 Gap between image and text */
+  padding-bottom: 8rem; /* 👈 Space between each facility block */
+  flex-wrap: wrap;
+}
+
+.facility-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.facility-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.facility-text {
+  flex: 1 1 400px;
+}
+
+.facility-text h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #7cffb3; /* bright green heading */
+}
+
+.facility-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}

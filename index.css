@@ -1,0 +1,634 @@
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #121212;
+        position: relative;
+        color: #E0E0E0;
+        overflow-x: hidden;
+        font-family: 'Playfair Display', serif;
+      }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+        padding: 0.8rem;
+      }
+
+      nav.scrolled {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .logo img {
+        width: 4rem;
+        height: 4rem;
+        margin-left: 1rem;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        margin-right: 1rem;
+        white-space: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+
+      .nav-links a:hover {
+        color: red;
+      }
+
+      .overview {
+
+    color: whitesmoke;
+    opacity: 1;
+    background-color: rgba(0, 128, 0, 0.5); /* green with 30% opacity */
+    padding: 1.5rem;
+    font-size: 2rem;
+    margin-top: 0rem;
+    padding-left: 2.5rem;
+  }
+
+
+      .overview-text p {
+        font-size: 1rem;
+        line-height: 1.8rem;
+        max-width: 95%;
+        margin: 1.25rem 2rem;
+        transform: translateY(2rem);
+        text-align:justify;
+        color: white;
+        opacity: 0.7;
+      }
+
+      .section-spacing {
+      margin-bottom: 6rem; /* You can adjust this value to increase/decrease spacing */
+      }
+      main {
+        flex: 1 0 auto;
+      }
+
+      footer {
+        background-color: lightgray;
+        color: black;
+        padding: 1rem 1rem;
+        text-align: center;
+        flex-shrink: 0;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      }
+
+      .credits {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+
+      .IT {
+        margin-top: 0.05rem;
+        font-style: italic;
+      }
+
+  /* Main Content Section */
+
+  .activities-achievements {
+    margin-top: 7rem;
+  }
+
+  .ACHVMNTS {
+      text-align: center;
+      padding: 2rem;
+  }
+
+  .year1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+      transform: translateY(0rem);
+  }
+
+  .hr1, .hr2, .hr3, .hr4, .hr5, .hr6, .hr7 {
+      border: 0.125rem solid green;
+      position: relative;
+      bottom: -1 rem;
+      width: 50rem;
+      margin: auto;
+  }
+
+  .OSN {
+      color: whitesmoke;
+      opacity: 1;
+      background-color: rgba(0, 128, 0, 0.5);
+      padding: 1.5rem;
+      font-size: 2rem;
+      margin-top: 0rem;
+      padding-left: 2.5rem;
+      transform: translateY(3rem);
+  }
+
+  .OSN1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      flex: 2 1 31.25rem; /* 500px */
+      color: white;
+      opacity: 0.7;
+  }
+
+  .osn1-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin: 1.5rem 2rem;
+      flex-wrap: wrap;
+      padding-bottom: 8rem;
+  }
+
+  .osn1-image {
+      flex: 1 1 18.75rem; /* 300px */
+      max-width: 25rem; /* 400px */
+  }
+
+  .osn1-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.3125rem; /* 5px */
+      transform: translateY(8rem);
+  }
+
+  .year2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+  }
+
+  .OJC {
+      color: whitesmoke;
+      opacity: 1;
+      background-color: rgba(0, 128, 0, 0.5);
+      padding: 1.5rem;
+      font-size: 2rem;
+      margin-top: 0rem;
+      padding-left: 2.5rem;
+      transform: translateY(3rem);
+      text-align: right;
+  }
+
+  .OJC1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  .year3 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+  }
+
+  .DPRO1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  .year4 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+  }
+
+  .OC1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  .year5 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+  }
+
+  .OCC1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  .year6 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bolder;
+      transform: translateY(0rem);
+  }
+
+  .hs2-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10rem;
+    margin-top: 2rem;
+  }
+
+  /* This puts the image collage on the left */
+  .image-collage {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .base-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 8rem;
+    left: 2rem;
+  }
+
+  .overlay-img {
+    position: absolute;
+    bottom: -15rem;
+    right: -10rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Keep your existing HS2 style but make it flexible */
+  .HS2 {
+    flex: 1;
+    text-align: justify;
+    color: white;
+    opacity: 0.7;
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+
+
+  .HS1 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  .HS2 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 95%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(8rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 12rem;
+  }
+
+  .ACCRDTTNS {
+      text-align: center;
+      transform: translateY(1rem);
+  }
+
+    .year-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 0;
+  position: relative;
+  max-width: 50rem;
+  transform: translateX(17rem);
+}
+
+.year-divider::before,
+.year-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #fff;
+  margin: 0 1rem;
+  
+}
+
+.year-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #fff;
+  font-style: italic;
+  padding: 0 0.5rem;
+  white-space: nowrap;
+}
+
+.gradient-line {
+  height: 2px;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto;
+  background: linear-gradient(to right, transparent, #ccc, transparent);
+}
+
+
+  .HS3 {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      max-width: 75%;
+      margin: 1.25rem 2rem;
+      margin-bottom: 8rem;
+      transform: translateY(5rem) translateX(8rem);
+      text-align: justify;
+      color: white;
+      opacity: 0.7;
+      padding-bottom: 5rem;
+  }
+
+  /* Year Section Styling */
+  .year-section {
+      background-color: transparent;
+      padding: 0.625rem; /* 10px */
+      border-radius: 0.3125rem; /* 5px */
+  }
+/* Base styles - hide hamburger by default */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Basic responsive menu toggle */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+
+/* General responsive fixes */
+@media (max-width: 1024px) {
+  .osn1-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .osn1-image {
+    max-width: 100%;
+    flex: 1 1 300px;
+    transform: none;
+  }
+
+  .osn1-image img {
+    transform: none;
+  }
+
+  .image-collage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 1rem auto;
+  }
+
+  .base-img,
+  .overlay-img {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.85;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .overlay-img {
+    bottom: 0;
+    right: 0;
+  }
+
+  .hr1, .hr2, .hr3, .hr4, .hr5, .hr6, .hr7 {
+    width: 50vw;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0rem;
+  }
+
+  .OSN1, .OJC1, .DPRO1, .OC1, .OCC1, .HS1, .HS2, .HS3 {
+    margin: 1rem 1.5rem 4rem;
+    max-width: 100%;
+  }
+
+  .HS3 {
+    left: -0.3rem;
+  }
+
+  .year1, .year2, .year3, .year4, .year5, .year6 {
+    transform: translateY(-2.5rem);
+  }
+
+  .OSN, .OSN1, .OJC, .OJC1, .DPRO1, .OC1, .OCC1, .HS1, .HS2, .HS3 {
+    transform: none !important;
+  }
+
+  .ACCRDTTNS {
+    transform: translateY(-2.5rem);
+  }
+
+  .base-img {
+    transform: translateX(-5rem);
+  }
+
+  .overlay-img {
+    top: -2rem;
+    left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .OSN, .OJC {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+  }
+
+  .year1, .year2, .year3, .year4, .year5, .year6 {
+    font-size: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .osn1-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1rem;
+    padding-bottom: 4rem;
+  }
+
+  .osn1-image {
+    max-width: 100%;
+    transform: none;
+  }
+
+  .osn1-image img {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 0.5rem;
+  }
+
+  .nav-links li {
+    margin-left: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .OSN, .OJC {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+  }
+
+  .year1, .year2, .year3, .year4, .year5, .year6 {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+
+  nav {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
