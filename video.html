@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video and Link Example</title>
+  <link rel="stylesheet" href="css/video.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo" />
+    </div>
+
+    <div class="hamburger" id="hamburger">&#9776;</div> <!-- ☰ icon -->
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="testing.html">Tour</a></li>
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="#year1">Exhibit and Achievements</a></li>
+    </ul>
+  </nav>
+
+  <div class="video"> <!-- to push content below fixed nav -->
+    <video loop muted playsinline poster="img/museum.png" width="640" height="360" controls class="video">
+      <source src="img/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="tour">
+    <a href="testing.html" target="_blank" rel="noopener noreferrer">
+      <img src="img/museum.png" alt="Open Testing Page" width="640" height="360" />
+    </a>
+  </div>
+
+    <script>
+ window.addEventListener("scroll", () => {
+    document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  </script>
+</body>
+</html>

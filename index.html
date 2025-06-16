@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Welcome to our homepage." />
+  <title>Digital Museum</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css" />
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+      .top-banner {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      background-image: url('img/museum.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .banner-text {
+      color: white;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+      padding: 1rem;
+      padding-top: 6rem; /* space for fixed nav */
+      max-width: 80%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner-text h1 {
+      font-size: 3rem;
+      margin: 0.5rem 0;
+
+    }
+
+    .banner-text p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+
+    }
+
+    /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .top-banner {
+    height: 70vh;
+  }
+
+  .banner-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner-text p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-banner {
+    height: 60vh;
+    background-attachment: scroll; /* fixed bg can be problematic on mobiles */
+  }
+
+  .banner-text {
+    max-width: 90%;
+    padding-top: 4rem;
+  }
+
+  .banner-text h1 {
+    font-size: 2rem;
+  }
+
+  .banner-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-banner {
+    height: 50vh;
+    background-attachment: scroll;
+  }
+
+  .banner-text {
+    padding-top: 3rem;
+    max-width: 95%;
+  }
+
+  .banner-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .top-banner {
+    height: 45vh;
+    background-attachment: scroll;
+  }
+
+  .banner-text {
+    padding-top: 2.5rem;
+  }
+
+  .banner-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .banner-text p {
+    font-size: 0.8rem;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- NAVIGATION BAR -->
+<nav>
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo" />
+  </div>
+
+  <div class="hamburger" id="hamburger">&#9776;</div> <!-- ☰ icon -->
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="index.html#year1">History and Founders</a></li>
+
+  </ul>
+</nav>
+
+    <!-- BANNER -->
+    <div class="top-banner">
+      <div class="overlay"></div>
+      <div class="banner-text">
+        <h1>Creation of Digital Museum</h1>
+        <h1>and Archives for Olivarez Parañaque</h1>
+        <p>Explore our history and achievements</p>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+     
+    <section class="section-spacing">
+      <h1 class="overview" id="about">Overview</h1>
+      <div class="overview-text">
+        <p>
+                The "Creation of the Digital Museum and Archives for Olivarez College" was created to preserve and protect the history, remarkable achievements, and treasured
+                memorabilia of Olivarez College. By creating the Digital Museum, we also inspire the future generation of Olivarez to understand and to value the importance of the
+                school's cultural heritage. By creating an online museum, we provide the students, staff/teachers, alumni, and the public with a precious resource that supports lifelong
+                learning and encourages a deeper appreciation and acknowledgement for the school's history and education. Our Digital Museum also plays a vital role in inspiring
+                the future generations of Olivarez College to not only understand but also to appreciate and value the cultural heritage that has shaped the school into what it is today.
+                It is a way of passing on the stories, traditions, and values that have been integral to the college’s identity over the years, allowing current and future students to take
+                pride in their school’s legacy. Furthermore, the creation of the online museum offers an easily accessible resource for students, faculty, alumni, and the public. We also serve as a precious instrument that supports lifelong learning, offering an extensive archive of materials that can be explored by anyone with an interest in Olivarez College’s history. It is not just a collection of artifacts but a field that nurtures continuous learning and personal growth.
+        </p>
+      </div>
+    </section>
+
+    <!-- VISION AND MISSION -->
+<section id="mission" class="section-spacing">
+  <h1 class="overview">Vision and Mission</h1>
+  <div class="overview-text">
+    <p>
+      To create a digital museum and archives that offers an accessible, interactive platform that connects people to the history of Olivarez College. Our Digital Museum and Archives will showcase the milestones, achievements, and traditions that have shaped Olivarez College into the respected school it is today. By preserving and celebrating its history, we aim to inspire pride and a deeper understanding of the college’s educational legacy. Our goal is to ensure that the story of Olivarez College continues to inspire future generations while honoring the past.
+    </p>
+  </div>
+</section>
+
+<section id="year1" class="year-section1">
+  <p class="OSN">History and Founders</p>
+
+  <!-- Flex container -->
+  <div class="osn1-container">
+    <!-- Image -->
+    <div class="osn1-image">
+      <img src="img/founders.jpg" alt="Olivarez School of Nursing" />
+    </div>
+
+    <!-- Paragraph -->
+    <p class="history">
+      The couple Pablo R. Olivarez, MD (DPRO) and Rosario L. Olivarez, MD (+), being enterprising members of their community in San Dionisio, Parañaque, envisioned to establish  a school in which its graduates shall be immediately hired in the hospital they have just put up and, at the same time, contribute in the formation of the youth dedicated to the service of God, country and man.
+
+      Being medical practitioners themselves who were aware of the great demand for nurses in the Philippines and abroad, they established the Olivarez School of Nursing on April 30, 1976.
+      <br> <br>
+       In 1975, Dr. Pablo R. Olivarez (DPRO) and his late wife Dr. Rosario pioneer in the development of the San Dionisio community when they put up Olivarez General Hospital along then Sucat Highway.
+    </p>
+  </div>
+</section>
+        <!-- Year 1 Section -->
+<section id="year1" class="year-section1">
+  <p class="OSN">The Establishment of Olivarez School of Nursing.</p>
+      <!-- Paragraph -->
+    <p class="OSN1">
+      While Sucat Road in Paranaque was still surrounded with rice field and salt beds, Dr. Pablo and the 
+      late Dra. Rosario Olivarez pioneered in the development of the community and they put up Olivarez General Hospital
+      in 1975. The following year, the spouses envisioned to establish a school in which its graduates shall be immediately
+      hired in the said hospital and, at the same time, contribute in the formation of the youth dedicated to the service of God,
+      country and man. Being medical practitioners themselves who were aware of the great demand for nurses in the Philippines and
+      abroad, they established the Olivarez School of Nursing on April 30,1976.
+      <br><br>
+      Originally, the school was situated in a one-hectare four-storey building wherein the first floor was used as the canteen, the 
+      second floor as the nursing laboratory and classrooms, the third floor as the library and the fourth floor as the dormitory.
+      <br><br>
+      Together with Mrs. Arceli Adriano, Mrs. Marilou I. Aguirre, Mrs. Ruth Gloria, Mrs. Petronilia Ignacio, Mrs.  
+      Teresita R. Oris, and five (5) faculty members, the school opened its doors for its first eighty-four (84) enrollees.
+    </p>
+  </div>
+</section>
+
+        <!-- Year 2 Section -->
+        <section id="year2" class="year-section2">
+            <p class="OJC">OSN renames into Olivarez Junior College.</p>
+            <p class="OJC1">In 1977, the year marked a dramatic increase in the students' enrollment, which led to a time of exciting changes for the school. This surge in enrollment triggered the offering of additional academic courses and programs like Liberal Arts and other vocational courses, giving students a broader range of opportunities. As the school evolved, Olivarez School of Nursing was later named Olivarez Junior College, reflecting its growth. Mrs. Petronilia Ignacio took on the important role as the first Academic Vice-President, guiding the school through this transformative period.
+        </section>
+
+        
+        <!-- Year 3 Section -->
+        <section id="year3" class="year-section1">
+            <p class="OSN">OJC established new departments. </p>
+            <p class="DPRO1">In 1978, the Olivarez Junior College established new departments, including the College of Arts and Sciences, the College of Commerce, and additional paramedic programs. These new colleges enabled greater educational opportunities, serving students with new interests and career aspirations.
+                <br><br>
+                In the meantime, Olivarez Junior College launched the Elementary Department by offering kindergarten and first-grade classes, providing young students with a secure and developmentally focused setting to start their academic journey.
+                <br><br>
+                To accommodate future growth, DPRO buys the two-hectare lot adjacent to Olivarez General Hospital. This acquisition not only marks a milestone in the school's expansion but also creates new avenues for advancement in both academic and medical facilities.                
+                </p>
+        </section>
+
+        <!-- Year 4 Section -->
+        <section id="year4" class="year-section1">
+            <p class="OJC">OJC started to offer complete elementary courses.</p>
+            <p class="OC1">In 1979, the growing demand for quality secondary education in 1979 led OJC to begin accepting first- and second-year high school students, marking an important step in the school's growth and development. This expansion reflected the school's commitment to providing a quality and relevant education.
+                <br><br>
+                In the same year, Olivarez Junior College started to offer complete elementary courses from grades 1 to 6, ensuring that younger students were provided a comprehensive education.
+                <br><br>
+                The formation of the Academic Council was also organized in the same year. The council was composed of the key figures, including Executive Vice-President, Dean of the college department, and the heads of other departments. This expansion and restructuring laid the groundwork for what would eventually become the present site of the two-storey high school building, which was completed in 1979.</p>
+        </section>
+        
+        <!-- Year 5 Section -->
+        <section id="year5" class="year-section1">
+            <p class="OSN">OJC change its name into Olivarez College.</p>
+            <p class="OCC1">In 1980, a major turning point in the development of Olivarez Junior College was reached when it formally changed its name to Olivarez College. During this time, a four-storey structure known as PRO Hall was finished, which improved the college's campus and amenities even more.</p>
+        </section>
+
+        <!-- Year 6 Section -->
+        <section id="year6" class="year-section1">
+            <p class="OJC">Admission of third-and fourth-year high school students.</p>
+            <p class="HS1">In 1981, Olivarez College took a step in its growth by admitting third- and fourth-year high school students. This expansion allowed the institution to offer a complete high school education, guiding students as they approach their final years, offering them a quality experience to help them get ready for college or their future careers.  </p>
+        </section>
+
+                <!-- Year 6 Section -->
+        <section id="year7" class="year-section1">
+            <p class="OSN">OC opened the academic year under a new administration.</p>
+<div class="hs2-container">
+  <div class="image-collage">
+    <img src="img/ER.jpg" class="base-img">
+    <img src="img/E.jpg" class="overlay-img">
+  </div>
+
+  <p class="HS2">
+    In April 1995, the school opened the academic year under a new administration. Two (2) of Olivarez's children, Dr. Eric L. Olivarez and Ms. Evangeline L. Olivarez, assumed key leadership roles as Vice President for Academics and Services and Vice President for Finance and Administration, respectively, marking a significant transition in the institution's management.
+    <br><br>
+    Furthermore, in June of the same year, a four (4) storey structure specifically designed for the Basic Education Department was formally completed. This new building was constructed to better serve the needs of younger students and enhance their learning environment. At present, it houses its own cafeteria, home economics and practical arts rooms, science and computer laboratories, an audio-visual room, libraries, and multiple classrooms to support a better educational experience.
+  </p>
+</div>
+
+        </section>
+
+        <section id="year6" class="year-section1">
+            <h1 class="HS ">Accreditations</h1>
+            <p class="HS3"> Quality education has always been a thrust of the school. Thus, in October 1990, the school formally wrote the Philippine Association for Colleges and Universities on Accreditation (PACUCOA), requesting it to orient the school administration regarding the process of accreditation. The PACUCOA team came in February 1991 for a consultation meeting with the administration, faculty, and staff.
+                Level I Accredited status was formally awarded to the College of Liberal Arts and Commerce in July 1992. In May 1993, the College of Commerce and Liberal Arts was granted by PACUCOA their Level II Accredited status. Level II First Re-accredited was granted to the College of Liberal Arts and Commerce in April 1998. The Level II Second Re-accredited status and Level II Third Re-accredited status were given to the College of Liberal Arts and College of Business Administration in April 2004 and 2009, respectively, valid until April 2014. These colleges are eligible to apply for the Level III Accredited status.
+                <br><br>
+                The College of Nursing also enjoys a prestigious accredited status granted by the same accrediting agency. In September 1992, it was awarded Level I Accredited status. Level II Accredited status was conferred in February 1997, followed by Level II First Re-Accredited status in September 2001. It was in August 2007 that the college was granted the Level II Second Re-accredited status valid until August 2012.
+                <br><br>
+                On the other hand, in February 2002, the Grade School and High School Departments, collectively called the Basic Education Department, were awarded Level I accredited status by the Philippine Accrediting Association of Colleges and Universities (PAASCU). In May 2004, PAASCU awarded once again the Basic Education Department its Level II accredited status for having satisfactorily met its requirements and standards. Four years later, in May 2008, PAASCU granted the Basic Education Department the Level II Re-accredited status for 5 years, valid until May 2013.
+                <br><br>
+                PACUCOA likewise gave notice in the compliance of the school to its accreditation standard of the Bachelor of Secondary Education, Bachelor of Elementary Education, and Bachelor of Science in Hotel and Restaurant Management in January 2007 when it awarded the candidate status. These programs were given Level I Accredited status in April 2009.
+                <br><br>
+                At the graduate school level, the Master of Arts in Education and Master of Business Administration programs were recognized by PACUCOA upon granting their candidate status in March 2008.
+        </section>
+  </main> 
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="credits">
+      <p>&copy; 2025 Olivarez College Paranaque. All rights reserved.</p>
+      <p class="IT">Information Technology Department</p>
+    </div>
+  </footer>
+
+  <script>
+ window.addEventListener("scroll", () => {
+    document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  </script>
+</body>
+</html> 

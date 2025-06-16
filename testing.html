@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtual Museum Tour - Advanced Features</title>
+
+<!-- Pannellum CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+/>
+
+<style>
+  /* Basic resets and body styling */
+  html, body {
+    margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #eee;
+  }
+
+  /* Panorama container fills viewport */
+  #panorama {
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* Loading spinner shown while panorama loads */
+  #loader {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #444;
+    border-top: 8px solid #ffd700;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+  }
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* Controls container fixed top-right */
+  #controls {
+    position: fixed;
+    top: 10px; right: 10px;
+    background: rgba(0,0,0,0.75);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 140px;
+  }
+  /* Buttons styling */
+  #controls button {
+    background: #222;
+    border: none;
+    color: #ffd700;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #controls button:hover {
+    background: #ffd700;
+    color: #111;
+  }
+
+  /* Scene selector fixed bottom center */
+  #sceneMenu {
+    position: fixed;
+    bottom: 10px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 10px 15px;
+    border-radius: 30px;
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+  }
+  /* Scene buttons styling */
+  #sceneMenu button {
+    background: #222;
+    border: none;
+    color: #ffd700;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  #sceneMenu button.active, #sceneMenu button:hover {
+    background: #ffd700;
+    color: #111;
+  }
+
+  /* Modal window for info hotspots */
+  #infoModal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    padding: 25px 35px;
+    border-radius: 12px;
+    color: #ffd700;
+    max-width: 450px;
+    box-shadow: 0 0 25px #ffd700cc;
+    display: none;
+    z-index: 10000;
+  }
+  /* Close button for info modal */
+  #infoModal button.closeBtn {
+    background: transparent;
+    border: none;
+    color: #ffd700;
+    font-size: 1.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 12px; right: 18px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* Audio controls layout */
+  #audioControls {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #audioControls button {
+    background: #222;
+    border: none;
+    color: #ffd700;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  #audioControls button:hover {
+    background: #ffd700;
+    color: #111;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    #controls {
+      width: 110px;
+      padding: 8px;
+      top: 5px; right: 5px;
+    }
+    #sceneMenu {
+      padding: 8px 10px;
+      gap: 8px;
+    }
+    #sceneMenu button {
+      padding: 6px 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+  #sceneMenu {
+    flex-wrap: wrap;
+    padding: 8px;
+    gap: 10px;
+  }
+  #sceneMenu button {
+    font-size: 0.95rem;
+    padding: 6px 14px;
+  }
+  #controls {
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  }
+
+  @media (max-width: 480px) {
+  #sceneMenu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #sceneMenu button {
+    width: 100%;
+    text-align: center;
+  }
+
+  #infoModal {
+    width: 90%;
+    max-width: none;
+    padding: 20px;
+  }
+  }
+
+   #sceneMenu {
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Loading spinner -->
+<div id="loader"></div>
+
+<!-- Panorama container -->
+<div id="panorama"></div>
+
+<!-- Scene selector menu -->
+<div id="sceneMenu">
+  <button data-scene="gallery1" class="active">Entrance</button>
+  <button data-scene="gallery2">Modern Art</button>
+  <button data-scene="gallery3">Sculpture Hall</button>
+  <button data-scene="gallery4">Photography</button>
+</div>
+  
+<!-- Info modal window -->
+<div id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+  <button class="closeBtn" aria-label="Close Info">&times;</button>
+  <div id="infoContent"></div>
+</div>
+
+<!-- Pannellum library -->
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<script>
+  // Reference to DOM elements
+// Reference to DOM elements
+const loader = document.getElementById('loader');
+const infoModal = document.getElementById('infoModal');
+const infoContent = document.getElementById('infoContent');
+const closeBtn = infoModal.querySelector('.closeBtn');
+const sceneButtons = document.querySelectorAll('#sceneMenu button');
+
+
+  
+  // Audio files for each scene
+  const audios = {
+    gallery1: new Audio('audio/entrance.mp3'),
+    gallery2: new Audio('audio/modernart.mp3'),
+    gallery3: new Audio('audio/sculpture.mp3'),
+    gallery4: new Audio('audio/photography.mp3'),
+  };
+  let currentAudio = null; // currently playing audio object
+  let audioPlaying = false; // playback state
+
+  // Initialize Pannellum viewer with scenes and hotspots
+  const viewer = pannellum.viewer('panorama', {
+    default: {
+      firstScene: 'gallery1',
+      sceneFadeDuration: 1500,
+      autoLoad: true,
+      compass: true,
+      hfov: 120,
+      minHfov: 60,
+      maxHfov: 140,
+      maxPitch: 60,
+    },
+    scenes: {
+      gallery1: {
+        title: "Gallery 1 - The Entrance",
+        type: "equirectangular",
+        panorama: "img/entra.jpg",
+        hotSpots: [
+          {
+            pitch: -30,
+            yaw: 15,
+            type: "scene",          // Hotspot that changes scene
+            text: "Enter Gallery 2",
+            sceneId: "gallery2"
+          },
+          {
+            pitch: -30,
+            yaw: 10,
+            type: "info",           // Info hotspot showing modal info
+            text: "About this gallery",
+            createTooltipFunc: function(hotSpotDiv) {
+              hotSpotDiv.innerHTML = "ℹ️";
+              hotSpotDiv.style.fontSize = "24px";
+              hotSpotDiv.style.color = "#ffd700";
+              hotSpotDiv.style.cursor = "pointer";
+            },
+            clickHandlerFunc: function() {
+              showInfo("here is the main entrance featuring classical art.");
+            }
+          }
+        ]
+      },
+      gallery2: {
+        title: "Gallery 2 - Modern Art",
+        type: "equirectangular",
+        panorama: "img/wayhall.jpg",
+        hfov: 150,
+        yaw: -160,
+        maxHfov:100,
+        minHfov:1,
+        minPitch:1,
+        maxPitch:1,
+        hotSpots: [
+          {
+            pitch: -10,
+            yaw: -37,
+            type: "scene",
+            text: "Enter scene",
+            sceneId: "gallery3"
+          },
+          {
+            pitch: -2,
+            yaw: 30,
+            type: "scene",          // Hotspot that changes scene
+            text: "Go back to Entrance?",
+            sceneId: "gallery1"
+          },
+          {
+            pitch: 5,
+            yaw: 20,
+            type: "info",
+            text: "About modern art",
+            createTooltipFunc: function(hotSpotDiv) {
+              hotSpotDiv.innerHTML = "ℹ️";
+              hotSpotDiv.style.fontSize = "24px";
+              hotSpotDiv.style.color = "#ffd700";
+              hotSpotDiv.style.cursor = "pointer";
+            },
+            clickHandlerFunc: function() {
+              showInfo("Gallery 2 showcases contemporary modern art pieces.");
+            }
+          }
+        ]
+      },
+      gallery3: {
+        title: "Gallery 3 - Sculpture Hall",
+        type: "equirectangular",
+        panorama: "img/hallway.jpg",
+        hfov: 150,
+        pitch: 100,
+        maxHfov:100,
+        minHfov:1,
+        minPitch:1,
+        maxPitch:1,
+
+        hotSpots: [
+          {
+            pitch: 0,
+            yaw: 90,
+            type: "scene",
+            text: "Go to Gallery 4",
+            sceneId: "gallery4"
+          },
+          {
+            pitch: -5,
+            yaw: -30,
+            type: "info",
+            text: "Sculpture details",
+            createTooltipFunc: function(hotSpotDiv) {
+              hotSpotDiv.innerHTML = "ℹ️";
+              hotSpotDiv.style.fontSize = "24px";
+              hotSpotDiv.style.color = "#ffd700";
+              hotSpotDiv.style.cursor = "pointer";
+            },
+            clickHandlerFunc: function() {
+              showInfo("Gallery 3 features classic and modern sculptures.");
+            }
+          }
+        ]
+      },
+      gallery4: {
+        title: "Gallery 4 - Photography",
+        type: "equirectangular",
+        panorama: "img/photography.jpg",
+        hotSpots: [
+          {
+            pitch: 0,
+            yaw: -90,
+            type: "scene",
+            text: "Back to Gallery 3",
+            sceneId: "gallery3"
+          },
+          {
+            pitch: 15,
+            yaw: 0,
+            type: "info",
+            text: "Photography exhibit",
+            createTooltipFunc: function(hotSpotDiv) {
+              hotSpotDiv.innerHTML = "ℹ️";
+              hotSpotDiv.style.fontSize = "24px";
+              hotSpotDiv.style.color = "#ffd700";
+              hotSpotDiv.style.cursor = "pointer";
+            },
+            clickHandlerFunc: function() {
+              showInfo("Gallery 4 contains a wide array of photography styles.");
+            }
+          }
+        ]
+      }
+    }
+  });
+
+  // Hide loader when panorama is fully loaded
+  viewer.on('load', () => {
+    loader.style.display = 'none';
+  });
+
+  // Show the info modal with given text
+  function showInfo(text) {
+    infoContent.textContent = text;
+    infoModal.style.display = 'block';
+  }
+  // Close info modal on close button click
+  closeBtn.addEventListener('click', () => {
+    infoModal.style.display = 'none';
+  });
+  // Close info modal if user clicks outside modal content
+  infoModal.addEventListener('click', (e) => {
+    if (e.target === infoModal) {
+      infoModal.style.display = 'none';
+    }
+  });
+
+  // Handle scene buttons click to change scenes
+  sceneButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sceneId = btn.getAttribute('data-scene');
+      changeScene(sceneId);
+    });
+  });
+
+  // Change scene and update UI elements
+  function changeScene(sceneId) {
+    viewer.loadScene(sceneId);           // Load panorama scene
+    updateSceneMenu(sceneId);            // Highlight active button
+    playAudio(sceneId);                  // Play corresponding audio
+    infoModal.style.display = 'none';   // Close info modal if open
+  }
+
+  // Highlight the active scene button
+  function updateSceneMenu(activeScene) {
+    sceneButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-scene') === activeScene);
+    });
+  }
+
+  // Play audio for the current scene, stop previous
+  function playAudio(sceneId) {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    currentAudio = audios[sceneId];
+    if (audioPlaying && currentAudio) {
+      currentAudio.play();
+    }
+  }
+
+  // Keyboard controls for navigation and zoom
+  document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+      case 'ArrowLeft':  // Pan left
+        viewer.setYaw(viewer.getYaw() - 10);
+        break;
+      case 'ArrowRight': // Pan right
+        viewer.setYaw(viewer.getYaw() + 10);
+        break;
+      case 'ArrowUp':    // Tilt up
+        viewer.setPitch(Math.min(90, viewer.getPitch() + 5));
+        break;
+      case 'ArrowDown':  // Tilt down
+        viewer.setPitch(Math.max(-90, viewer.getPitch() - 5));
+        break;
+      case '+':          // Zoom in
+      case '=':
+        zoomInBtn.click();
+        break;
+      case '-':          // Zoom out
+        zoomOutBtn.click();
+        break;
+      case 'f':          // Fullscreen toggle
+      case 'F':
+        fullscreenBtn.click();
+        break;
+    }
+  });
+
+  // Initialize UI with first scene audio paused
+  updateSceneMenu('gallery1');
+</script>
+
+</body>
+</html>
+  
