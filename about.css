@@ -1,0 +1,345 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: auto;
+    height: 100%;
+
+    scroll-behavior: smooth;
+}
+
+/* Ensure smooth scrolling */
+
+
+/* Apply Museo Sans font to the entire page */
+body {
+    font-family: 'Museo Sans', sans-serif;
+}
+
+/* Flexbox Layout for the Navigation */
+nav {
+    display: flex;
+    justify-content: space-between; /* Spread the logo and nav links */
+    align-items: center; /* Vertically center the items */
+    position: fixed;
+    top: 0; /* Ensures the navigation bar stays at the top */
+    left: 0; /* Aligns the navigation to the left */
+    width: 100%; /* Ensure nav spans the full width of the screen */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    z-index: 10; /* Keeps the nav on top of other content */
+    padding: 0.8em;
+}
+
+nav.scrolled {
+    background-color: #333; /* Set a solid background color when scrolled */
+}
+
+/* Other CSS (same as you provided) */
+.hr1 {
+    position: fixed;
+    top: 5.5em;
+    left: -0em;
+    width: 84.5em;
+}
+
+.logo {
+    display: flex; /* Align logo and name horizontally */
+    align-items: center; /* Vertically center the logo and name */
+    margin-left: 1em;
+    position: relative; /* Keep logo in the same place */
+}
+
+.logo img {
+    width: 4em; /* Adjust the image size */
+    height: 4em; /* Maintain the aspect ratio */
+    margin-right: .7em; /* Space between image and name */
+}
+
+.name {
+    position: fixed;
+    left: 6em;
+    top: 0em;
+    font-size: 1.2em;
+    color: darkgreen;
+}
+
+/* Flexbox Layout for the Navigation */
+nav {
+    display: flex;
+    justify-content: space-between; /* Spread the logo and nav links */
+    align-items: center; /* Vertically center the items */
+    position: fixed;
+    top: 0; /* Ensures the navigation bar stays at the top */
+    left: 0; /* Aligns the navigation to the left */
+    width: 100%; /* Ensure nav spans the full width of the screen */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    z-index: 10; /* Keeps the nav on top of other content */
+    padding: 0.8em;
+}
+
+nav.scrolled {
+    background-color: #333; /* Set a solid background color when scrolled */
+}
+
+/* Other CSS (same as you provided) */
+.hr1 {
+    position: fixed;
+    top: 5.5em;
+    left: -0em;
+    width: 84.5em;
+}
+
+.logo {
+    display: flex; /* Align logo and name horizontally */
+    align-items: center; /* Vertically center the logo and name */
+    margin-left: 1em;
+    position: relative; /* Keep logo in the same place */
+}
+
+.logo img {
+    width: 4em; /* Adjust the image size */
+    height: 4em; /* Maintain the aspect ratio */
+    margin-right: .7em; /* Space between image and name */
+}
+
+.name {
+    position: fixed;
+    left: 6em;
+    top: 0em;
+    font-size: 1.2em;
+    color: darkgreen;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 4em; /* To adjust the position of the nav */
+    position: relative; /* Needed for positioning */
+}
+
+.nav-links li {
+    position: relative; /* Needed for dropdown positioning */
+    margin-left: 2em; /* Space between links */
+}
+
+.nav-links a {
+    color: darkgreen; /* Change this to any color you want, e.g., #ff0000 for red */
+    text-decoration: none;
+    font-weight: 600; /* Extra bold text */
+    font-size: 1.3em;
+    font-family: 'Museo Sans', sans-serif; /* Apply Museo Sans */
+}
+
+.nav-links a:hover {
+    color: red;
+}
+
+
+/* Ensure Flexbox Layout for Section */
+#overview {
+    transform: translateY(10em);
+    margin: 0;
+    padding: 0;
+    margin-left: 2em;
+
+}
+
+#overview h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: darkgreen;
+}
+
+.overview-text p {
+    font-size: 1.1em;
+    line-height: 1.8em;
+    color: #333;
+    margin-top: 1em;
+}
+
+
+
+/* Vision and Mission Section */
+#mission {
+    transform: translateY(13em);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10em;
+    margin-left: 2em;
+}
+
+#mission h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: darkgreen;
+}
+
+.mission-text p {
+    font-size: 1.1em;
+    line-height: 1.8em;
+    color: #333;
+    margin-top: 1em;
+}
+/* Footer Styles */
+footer {
+    background: lightgray;
+    color: black;
+    padding: 3em 0;
+    transform: translateY(10em);
+}
+
+footer a {
+    color:black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.credits {
+    position: fixed;
+    top: 2em;
+    left: 30em;
+}
+
+.IT{
+    transform: translateX(3.5em);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .nav-links {
+    margin-right: 2em;
+  }
+
+  .nav-links li {
+    margin-left: 1em;
+  }
+
+  .nav-links a {
+    font-size: 1.1em;
+  }
+
+  .logo img {
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  .name {
+    left: 5em;
+    font-size: 1em;
+  }
+
+  #overview, #mission {
+    margin-left: 1em;
+    transform: translateY(8em);
+    padding-right: 1em;
+  }
+
+  #overview h1, #mission h1 {
+    font-size: 1.7em;
+  }
+
+  .overview-text p, .mission-text p {
+    font-size: 1rem;
+    line-height: 1.5em;
+  }
+
+  .credits {
+    position: static;
+    text-align: center;
+    margin-top: 2em;
+    transform: none;
+  }
+
+  .IT {
+    transform: none;
+    margin-top: 0.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em 1em;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.5em;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 0.7em;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .logo img {
+    width: 3em;
+    height: 3em;
+  }
+
+  .name {
+    position: static;
+    font-size: 1em;
+    color: darkgreen;
+    margin-top: 0.5em;
+    left: auto;
+    top: auto;
+  }
+
+  #overview, #mission {
+    margin-left: 1em;
+    transform: translateY(6em);
+    padding-right: 0.5em;
+  }
+
+  #overview h1, #mission h1 {
+    font-size: 1.5em;
+  }
+
+  .overview-text p, .mission-text p {
+    font-size: 0.95rem;
+    line-height: 1.4em;
+  }
+
+  footer {
+    padding: 2em 1em;
+    transform: translateY(6em);
+  }
+
+  .credits {
+    text-align: center;
+    position: static;
+    margin-top: 1em;
+  }
+
+  .IT {
+    transform: none;
+    margin-top: 0.5em;
+  }
+
+  .hr1 {
+    width: 100vw;
+    left: 0;
+  }
+}

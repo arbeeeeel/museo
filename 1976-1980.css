@@ -1,0 +1,515 @@
+ /* Basic Reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply Museo Sans font to the entire page */
+body {
+    font-family: 'Museo Sans', sans-serif; /* Apply Museo Sans */
+
+}
+
+
+/* Flexbox Layout for the Navigation */
+nav {
+    display: flex;
+    justify-content: space-between; /* Spread the logo and nav links */
+    align-items: center; /* Vertically center the items */
+    position: fixed;
+    top: 0; /* Ensures the navigation bar stays at the top */
+    left: 0; /* Aligns the navigation to the left */
+    width: 100%; /* Ensure nav spans the full width of the screen */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    z-index: 10; /* Keeps the nav on top of other content */
+    padding: 0.8em;
+}
+
+nav.scrolled {
+    background-color: #333; /* Set a solid background color when scrolled */
+}
+
+.logo {
+    display: flex; /* Align logo and name horizontally */
+    align-items: center; /* Vertically center the logo and name */
+    margin-left: 1em;
+    position: relative; /* Keep logo in the same place */
+}
+
+.logo img {
+    width: 4em; /* Adjust the image size */
+    height: 4em; /* Maintain the aspect ratio */
+    margin-right: .7em; /* Space between image and name */
+}
+
+.name {
+    position: fixed;
+    left: 6em;
+    top: 0em;
+    font-size: 1.2em;
+    color: darkgreen;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    position: relative; /* Needed for positioning */
+    transform: translateX(-4em);
+}
+
+.nav-links li {
+    position: relative; /* Needed for dropdown positioning */
+    margin-left: 2em; /* Space between links */
+}
+
+.nav-links a {
+    color: green; /* Change this to any color you want, e.g., #ff0000 for red */
+    text-decoration: none;
+    font-weight: 600; /* Extra bold text */
+    font-size: 1.3em;
+    font-family: 'Museo Sans', sans-serif; /* Apply Museo Sans */
+}
+
+.nav-links a:hover {
+    color: red;
+}
+
+.hr0 {
+    position: fixed;
+    top: 5.5em;
+    left: -0em;
+    width: 84.5em;
+}
+
+/* Main Content Section */
+
+.activities-achievements {
+   margin-top: 7em;
+}
+
+.ACHVMNTS{
+    text-align: center;
+    padding: 2em;
+}
+
+.year1 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    transform: translateY(0em);
+}
+
+.hr1 {
+        border: 2px solid green;
+        position: relative;
+        bottom: -3em;
+        width: 50em;
+        margin: auto;
+}
+
+.OSN {
+    position: relative;
+    top: 60px;
+    text-align: left;
+    font-size: 2em;
+    background-color: green;
+    padding: 0.5em;
+    letter-spacing: 0.1em;
+    color: white;
+    font-weight: bolder;
+    width: auto;
+}
+
+.OSN1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 1em;
+}
+
+.year2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.hr2 {
+    border: 2px solid gold;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+
+.OJC {
+    position: relative;
+    top: 60px;
+    text-align: right;
+    font-size: 2em;
+    background-color: gold;
+    padding: 0.5em;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+.OJC1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 3em;
+}
+
+.year3 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.hr3 {
+    border: 2px solid green;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+
+
+.DPRO1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 1em;
+}
+
+.year4{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.hr4 {
+    border: 2px solid gold;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+
+.OC1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 3em;
+}
+
+.year5 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.hr5 {
+    border: 2px solid green;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+
+
+.OCC1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 1em;
+}
+
+.year6 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    transform: translateY(0em);
+}
+
+.hr6 {
+    border: 2px solid green;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+
+.HS1 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 3em;
+}
+
+.HS2 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 10em;
+    text-align: justify;
+    max-width: 80em;
+    left: 1em;
+}
+
+.ACCRDTTNS{
+    text-align: center;
+    transform: translateY(1em);
+}
+
+.HS3 {
+    position: relative;
+    top: 90px;
+    font-size:1em;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    margin-bottom: 5em;
+    text-align: justify;
+    align-items: center;
+    text-indent: 2em;
+    max-width: 80em;
+    left: 1em;
+}
+
+.hr7{
+    border: 2px solid green;
+    position: relative;
+    bottom: -3em;
+    width: 50em;
+    margin: auto;
+}
+/* Year Section Styling */
+.year-section {
+    background-color: transparent;
+    padding: 10px;
+
+    border-radius: 5px;
+    
+}
+
+footer {
+    background: lightgray;
+    color: black;
+    padding: 3em 0;
+    transform: translateY(10em);
+    background-color: lightgray;
+}
+
+footer a {
+    color:black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.credits {
+    position: fixed;
+    top: 2em;
+    left: 30em;
+}
+
+.IT{
+    transform: translateX(3.5em);
+}
+
+
+/* Your entire original CSS here (omitted here for brevity, but it’s the same you provided) */
+
+/* ------------------- Responsive Styles ------------------- */
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 0.5em 1em;
+  }
+  
+  .logo {
+    margin-left: 0.5em;
+  }
+  
+  .logo img {
+    width: 3em;
+    height: 3em;
+  }
+  
+  .name {
+    left: 4.5em;
+    font-size: 1em;
+    top: 0.3em;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translateX(0);
+    margin-top: 0.5em;
+  }
+  
+  .nav-links li {
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .nav-links a {
+    font-size: 1.1em;
+  }
+  
+  /* Adjust main content max widths */
+  .OSN1,
+  .OJC1,
+  .DPRO1,
+  .OC1,
+  .OCC1,
+  .HS1,
+  .HS2,
+  .HS3 {
+    max-width: 100%;
+    left: 0;
+    padding: 0 1em;
+  }
+
+  /* Reduce hr widths */
+  .hr1, .hr2, .hr3, .hr4, .hr5, .hr6, .hr7 {
+    width: 90%;
+  }
+
+  /* Center year headings */
+  .year1, .year2, .year3, .year4, .year5, .year6 {
+    font-size: 1.5em;
+  }
+
+  footer {
+    padding: 2em 1em;
+    transform: translateY(5em);
+  }
+
+  .credits {
+    left: 1em;
+    top: 1em;
+    font-size: 0.9em;
+  }
+}
+
+/* Small devices (phones, 767px and below) */
+@media (max-width: 767px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em 1em;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .logo img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .name {
+    position: static;
+    font-size: 1em;
+    color: darkgreen;
+    margin-bottom: 0.5em;
+    left: auto;
+    top: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    transform: translateX(0);
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 0.7em;
+  }
+
+  .nav-links a {
+    font-size: 1.2em;
+  }
+
+  .OSN1,
+  .OJC1,
+  .DPRO1,
+  .OC1,
+  .OCC1,
+  .HS1,
+  .HS2,
+  .HS3 {
+    max-width: 100%;
+    left: 0;
+    padding: 0 1em;
+    font-size: 0.95em;
+  }
+
+  .hr1, .hr2, .hr3, .hr4, .hr5, .hr6, .hr7 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .year1, .year2, .year3, .year4, .year5, .year6 {
+    font-size: 1.2em;
+  }
+
+  footer {
+    padding: 2em 1em;
+    transform: translateY(3em);
+  }
+
+  .credits {
+    position: static;
+    margin: 1em 0;
+    font-size: 0.85em;
+    text-align: center;
+  }
+}
+
+
+
