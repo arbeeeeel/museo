@@ -1,53 +1,45 @@
+/* Reset default margin/padding, and enable border-box sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Set overall body styling: dark background, light text, serif font */
 body {
   background: #121212;
   color: #e0e0e0;
   font-family: "Playfair Display", serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* === nav === */
+/* NAVIGATION BAR STYLING */
 nav {
-  position: fixed;
+  position: fixed;               /* Keep navbar at the top */
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: transparent; /* Transparent by default */
   transition: background-color 0.3s ease;
   z-index: 1000;
   padding: 0.8rem;
 }
 
+/* Apply background when user scrolls */
 nav.scrolled {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* === logo === */
+/* Logo size and spacing */
 .logo img {
   width: 4rem;
   height: 4rem;
   margin-left: 1rem;
 }
 
-/* === hamburger === */
+/* Hamburger menu icon (hidden by default) */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -55,25 +47,28 @@ nav.scrolled {
   color: white;
 }
 
-/* === nav-links === */
+/* NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
   margin-right: 1rem;
   white-space: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
+  overflow-x: auto;      /* Horizontal scroll for long nav */
+  scrollbar-width: none; /* Hide scrollbar (Firefox) */
   gap: 1rem;
 }
 
+/* Hide scrollbar for Chrome/Safari */
 .nav-links::-webkit-scrollbar {
   display: none;
 }
 
+/* Spacing between nav items */
 .nav-links li {
   margin-left: 2rem;
 }
 
+/* Nav link text styling */
 .nav-links a {
   color: white;
   text-decoration: none;
@@ -81,38 +76,105 @@ nav.scrolled {
   font-size: 1.3rem;
 }
 
+/* Hover effect for nav links */
 .nav-links a:hover {
   color: red;
 }
 
-.overview {
-  color: whitesmoke;
-  opacity: 1;
-  background-color: rgba(0, 128, 0, 0.5);
-  padding: 1.5rem 0 1.5rem 2.5rem;
-  font-size: 2rem;
-  margin-top: 0rem;
+/* SECTION TITLE STYLING */
+.section-title {
+  text-align: center;
+  margin: 10rem 0 30px;
+  animation: fadeIn 1.2s ease-out;
 }
 
-.overview-text p {
-  font-size: 1rem;
-  line-height: 1.8rem;
-  max-width: 95%;
-  margin: 1.25rem 2rem;
-  transform: translateY(2rem);
-  text-align: justify;
+/* Section title text */
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #00a300, #014421); /* Green gradient */
   color: white;
-  opacity: 0.7;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 180, 0, 0.7);
 }
 
-.section-spacing {
-  margin-bottom: 6rem;
+/* Icon in section title */
+.section-title i {
+  margin-right: 10px;
+  color: gold;
 }
 
-main {
-  flex: 1 0 auto;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+/* CONTAINER FOR ALL COLLECTIONS */
+.collection-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+  padding: 2em 1em;
+  transform: translateY(2em);
+}
+
+/* INDIVIDUAL ROWS OF COLLECTIONS */
+.collection-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3em;
+  margin-bottom: 2em;
+}
+
+/* INDIVIDUAL COLLECTION ITEM */
+.collection-container {
+  flex: 1 1 300px;
+  max-width: 25em;
+  padding: 1.5em;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ddd;
+}
+
+/* Images inside collection */
+.collection-container img {
+  width: 100%;
+  height: auto;
+  max-height: 15em;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Trophy and Certificate special styling (black borders) */
+.trophy-container {
+  border-color: black;
+}
+
+.certificate-container {
+  border-color: black;
+}
+
+/* FOOTER STYLING */
+footer {
+  background-color: lightgray;
+  color: black;
+  padding: 3em 0;
+  text-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(10em);
+}
+
+/* === credits (near end of page) === */
+.credits {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.IT {
+  margin-top: 0.05rem;
+  font-style: italic;
+  transform: translateX(0em);
 }
 
 footer {
@@ -133,190 +195,97 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-
-.credits {
-  max-width: 60rem;
-  margin: 0 auto;
+/* MODAL OVERLAY */
+.modal {
+  display: none;
   position: fixed;
-  top: 2em;
-  left: 30em;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
 }
 
-.IT {
-  margin-top: 0.05rem;
-  font-style: italic;
-  transform: translateX(3.5em);
-}
-
-/* Main Content */
-.main-content {
+/* MODAL CONTENT SIDE-BY-SIDE */
+.modal-content.side-by-side {
   display: flex;
-  justify-content: space-between;
-  padding: 100px 20px 20px;
-  height: 110vh;
-}
-
-/* Page Title */
-.collection {
-  text-align: center;
-  background-color: green;
-  transform: translateY(1.5em);
-  margin-bottom: 2.5em; /* 👈 This adds space below the title */
-}
-
-.hr1 {
-  border: 2px solid green;
-  width: 60em;
-  margin: auto;
-  margin-top: 0.5em;
-  margin-bottom: 2em; /* 👈 Adds space before the collection boxes */
+  flex-direction: row; /* Image and text side-by-side */
+  gap: 2rem;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  color: #fff;
+  align-items: center;
   position: relative;
-  top: -1em; /* You may want to remove or reduce this */
 }
 
-/* Collection Group */
-.collection-group {
+/* Image inside modal */
+.modal-content img {
+  width: 300px;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Text section inside modal */
+.modal-text {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3em;
-  padding: 2em 1em;
-  transform: translateY(2em);
-}
-
-/* Collection Row */
-.collection-row {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 3em;
-  margin-bottom: 2em;
 }
 
-/* Collection Container */
-.collection-container {
-  flex: 1 1 300px;
-  max-width: 25em;
-  padding: 1.5em;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  border: 2px solid #ddd;
-}
-
-/* Image inside Collection */
-.collection-container img {
-  width: 100%;
-  height: auto;
-  max-height: 15em;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* Borders */
-.trophy-container {
-  border-color: black;
-}
-
-.medal-container {
-  border-color: green;
-}
-
-.memorabilia-container {
-  border-color: green;
-}
-
-.certificate-container {
-  border-color: black;
-}
-
-/* Text Content */
-.collection-title {
-  font-size: 1.25rem;
-  color: white;
-  margin-top: 0.625rem;
-}
-
-.collection-description {
-  font-size: 0.9rem;
-  color: white;
-  margin-top: 5px;
-}
-
-/* Additional Horizontal Rule */
-.hr2 {
-  border: 2px solid green;
-  width: 60em;
-  margin: auto;
-  position: relative;
-  top: 6em;
-}
-
-/* Facilities Section */
-.facilities-section {
-  padding: 4rem 2rem;
-  background-color: #0d1f1a;
-  color: #fff;
-}
-
-.facilities-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: bold;
-  color: #90ee90;
-}
-
-.facility-block {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding-bottom: 8rem;
-  flex-wrap: wrap;
-}
-
-.facility-block.reverse {
-  flex-direction: row-reverse;
-}
-
-.facility-image {
-  flex: 1 1 300px;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 0.5rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-.facility-text {
-  flex: 1 1 400px;
-}
-
-.facility-text h3 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #7cffb3;
-}
-
-.facility-text p {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.85;
-}
-
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  cursor: pointer;
+/* Modal title */
+.modal-text h3 {
   font-size: 2rem;
-  color: white;
+  margin-bottom: 1rem;
 }
 
-/* Responsive Navigation */
+/* Modal description */
+.modal-text p {
+  font-size: 1.2rem;
+}
+
+/* Close button styling */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Close button hover effect */
+.close-btn:hover {
+  color: #ff4d4d;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
+  /* Show hamburger on small screens */
   .hamburger {
     display: block;
   }
 
+  /* Mobile nav links layout */
   .nav-links {
     display: none;
     flex-direction: column;
@@ -328,7 +297,20 @@ footer a:hover {
     z-index: 999;
   }
 
+  /* Toggle visibility of nav menu */
   .nav-links.active {
     display: flex;
+  }
+
+  /* Stack modal content vertically on mobile */
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Responsive image inside modal */
+  .modal-content img {
+    max-width: 90%;
   }
 }
